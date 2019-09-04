@@ -7,6 +7,7 @@ from flask import Flask, render_template
 import os
 import requests
 import json
+import random
 
 # app execution name is appli
 appli = Flask(__name__)
@@ -14,8 +15,11 @@ appli = Flask(__name__)
 # defining authorization header in myheader :)
 myheader = {"Authorization": "Bearer eTnvJMtGEvFKJVrj72lNjVZzXgtyE1xD6Q-Unv2A0Amjhgfx-DEo-1oEUnipH87b"}
 
+# multiple songs to randomly generate
+song_id = [3300945, 3300935, 3320942, 1300941, 200943, 340092]
+
 # retreiving song api from genius and converting to json
-song = requests.get('https://api.genius.com/songs/378195?text_format=plain', headers=myheader)
+song = requests.get('https://api.genius.com/songs/' + str(random.choice(song_id)) + '?text_format=plain', headers=myheader)
 song_json = song.json()
 
 # just print(song_string) to inspect json data tree
