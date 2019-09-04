@@ -16,7 +16,7 @@ appli = Flask(__name__)
 myheader = {"Authorization": "Bearer eTnvJMtGEvFKJVrj72lNjVZzXgtyE1xD6Q-Unv2A0Amjhgfx-DEo-1oEUnipH87b"}
 
 # multiple songs to randomly generate
-song_id = [3300945, 3300935, 3320942, 1300941, 200943, 340092]
+song_id = [3300945, 2275793, 730]
 
 # retreiving song api from genius and converting to json
 song = requests.get('https://api.genius.com/songs/' + str(random.choice(song_id)) + '?text_format=plain', headers=myheader)
