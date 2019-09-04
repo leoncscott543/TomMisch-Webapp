@@ -6,26 +6,17 @@
   </head>
 
   <body>
-  <!-- <video autoplay loop muted>
-          <source src="/static/assets/tomvid.mp4" type="video/mp4">
-          <source src="/statoc/assets/tomvid.webm" type="video/mp4">
+    <video autoplay loop muted>
+          <source src="/static/tomvid.mp4" type="video/mp4">
+          <source src="/statoc/tomvid.webm" type="video/mp4">
     </video>
-    -->
+
     <img src={{song_art}} height="30">
     
     <h1>{{song_fulltitle}}</h1>
     
     <h3>Lyrics</h3>
-    <h4>ojfowiefjwoiejfwieofjwioeofjefjiowjefijwoeifwef</h4>
-    
-    <h1>Artist Bio</h1>
-    <h4>iefjowjifjewjfweiofjowjefowoiefjw</h4>
-    
-    <h1>Upcoming Events </h1>
-    
-    <h3>fiejfowiefjiowjeojfw</h3>
-    
-    
-    
-  </body>
+    <!--accepting lyrics embeded content in html-->
+    {{ song_lyrics|safe }} 
+    </body>
 </html>

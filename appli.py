@@ -15,8 +15,7 @@ appli = Flask(__name__)
 # defining authorization header in myheader :)
 myheader = {"Authorization": "Bearer eTnvJMtGEvFKJVrj72lNjVZzXgtyE1xD6Q-Unv2A0Amjhgfx-DEo-1oEUnipH87b"}
 
-# multiple songs to randomly generate
-song_id = [3300945, 2275793, 730]
+song_id=[3300945, 484106, 484106] # multiple songs to randomly generate
 
 # retreiving song api from genius and converting to json
 song = requests.get('https://api.genius.com/songs/' + str(random.choice(song_id)) + '?text_format=plain', headers=myheader)
@@ -31,7 +30,8 @@ song_string = json.dumps(song_json, indent=2)
 def songdata():
     return render_template('page.html', 
     song_art= song_json['response']['song']['song_art_image_url'],
-    song_fulltitle = song_json['response']['song']['full_title']
+    song_fulltitle = song_json['response']['song']['full_title'],
+    song_lyrics = song_json['response']['song']['embed_content']
 )
 
 appli.run(host=os.getenv('IP', '0.0.0.0'), 
